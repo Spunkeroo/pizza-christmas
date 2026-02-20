@@ -135,9 +135,42 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 .footer-copy{color:var(--muted);font-size:.8rem}
 .footer-tip{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 20px;border-radius:99px;font-size:.85rem;cursor:pointer;margin-top:12px;transition:all .2s}
 .footer-tip:hover{border-color:var(--gold);color:var(--gold)}
-@media(max-width:768px){.hero{padding:120px 0 60px}.deals-grid{grid-template-columns:1fr}}
-@media(max-width:480px){.container{padding:0 16px}.section{padding:60px 0}}
+/* Spin Wheel */
+.wheel-section{text-align:center}
+.wheel-wrap{position:relative;width:320px;height:320px;margin:0 auto 24px}
+.wheel-canvas{width:320px;height:320px;border-radius:50%;border:4px solid var(--accent);box-shadow:0 0 40px rgba(34,197,94,.25),inset 0 0 30px rgba(0,0,0,.4);transition:transform 4s cubic-bezier(.17,.67,.12,.99)}
+.wheel-pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:30px solid var(--gold);filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));z-index:2}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.4);z-index:2;border:3px solid var(--gold);transition:transform .2s}
+.wheel-center:hover{transform:translate(-50%,-50%) scale(1.1)}
+.spin-btn{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:16px 48px;border-radius:99px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(239,68,68,.3)}
+.spin-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(239,68,68,.5)}
+.spin-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.spin-result{display:none;margin-top:24px;padding:24px;background:var(--card);border:1px solid var(--accent);border-radius:var(--radius);animation:fadeUp .5s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.spin-result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px;color:var(--accent)}
+.spin-result p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.spin-cooldown{color:var(--muted);font-size:.9rem;margin-top:12px}
+/* Share Buttons */
+.share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.share-btn{padding:10px 22px;border-radius:99px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:6px}
+.share-btn.x-share{background:#000;color:#fff;border:1px solid #333}
+.share-btn.x-share:hover{background:#1a1a1a}
+.share-btn.copy-share{background:var(--card);color:var(--text);border:1px solid var(--border)}
+.share-btn.copy-share:hover{border-color:var(--gold);color:var(--gold)}
+/* Floating Tip Heart */
+.float-tip{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;font-size:1.5rem;cursor:pointer;z-index:90;box-shadow:0 4px 20px rgba(239,68,68,.4);transition:all .3s;display:flex;align-items:center;justify-content:center}
+.float-tip:hover{transform:scale(1.15);box-shadow:0 6px 30px rgba(239,68,68,.6)}
+/* Newsletter Firebase */
+.nl-firebase{max-width:420px;margin:0 auto;display:flex;gap:8px}
+.nl-firebase input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:99px;padding:12px 20px;color:var(--text);font-size:.95rem;outline:none}
+.nl-firebase input:focus{border-color:var(--primary)}
+.nl-firebase button{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border:none;padding:12px 28px;border-radius:99px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s}
+.nl-firebase button:hover{transform:translateY(-1px)}
+.nl-msg{text-align:center;margin-top:10px;font-size:.9rem}
+@media(max-width:768px){.hero{padding:120px 0 60px}.deals-grid{grid-template-columns:1fr}.wheel-wrap{width:280px;height:280px}.wheel-canvas{width:280px;height:280px}}
+@media(max-width:480px){.container{padding:0 16px}.section{padding:60px 0}.nl-firebase{flex-direction:column}.nl-firebase button{width:100%}}
 </style>
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","pn0x1z2y3w");</script>
 </head>
 <body>
 <nav class="nav"><div class="container">
@@ -295,11 +328,35 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 </div>
 </div></section>
 
+<section class="section wheel-section" id="wheel"><div class="container">
+<h2 class="section-title">Daily Deals Wheel</h2>
+<p class="section-sub">Spin once every 24 hours for a chance at a holiday pizza deal!</p>
+<div class="wheel-wrap">
+  <div class="wheel-pointer"></div>
+  <canvas id="wheelCanvas" class="wheel-canvas" width="640" height="640"></canvas>
+  <div class="wheel-center" onclick="spinWheel()">&#127829;</div>
+</div>
+<button class="spin-btn" id="spinBtn" onclick="spinWheel()">Spin for a Deal!</button>
+<div class="spin-cooldown" id="spinCooldown"></div>
+<div class="spin-result" id="spinResult">
+  <h3 id="spinPrize"></h3>
+  <p id="spinDesc"></p>
+  <div class="share-btns" id="shareBtns">
+    <button class="share-btn x-share" onclick="shareOnX()">Share on X</button>
+    <button class="share-btn copy-share" onclick="copyShareLink()">Copy Link</button>
+  </div>
+</div>
+</div></section>
+
 <section class="section newsletter"><div class="container">
 <div class="nl-box">
   <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Pizza Christmas Newsletter</h2>
   <p style="color:var(--muted);margin-bottom:20px;font-size:.95rem">Daily pizza deals, coupons, and holiday specials. Free.</p>
-  <iframe src="https://embeds.beehiiv.com/universal" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="width:100%;border-radius:8px;background:transparent"></iframe>
+  <div class="nl-firebase" id="nlForm">
+    <input type="email" id="nlEmail" placeholder="your@email.com">
+    <button onclick="submitNewsletter()">Subscribe</button>
+  </div>
+  <div class="nl-msg" id="nlMsg"></div>
 </div>
 </div></section>
 
@@ -311,6 +368,8 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 <div class="tip-addr"><label>ETH</label><code onclick="copyAddr(this)">0xD2aC89253b5F20f5b03b5B591297Fa4FCC37d41c</code></div>
 <div class="tip-addr"><label>SOL</label><code onclick="copyAddr(this)">Cds2aUuhyJa4NaZo7JER7LakW4VmmfnqVixHusrKKZsm</code></div>
 </div></div>
+
+<button class="float-tip" onclick="openTip()" title="Support Us">&#10084;</button>
 
 <footer class="footer"><div class="container">
 <div class="footer-links">
@@ -328,6 +387,7 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 <script>
 firebase.initializeApp({databaseURL:"https://predict-network-ec767-default-rtdb.firebaseio.com",projectId:"predict-network-ec767"});
 const db=firebase.database(),subRef=db.ref('pizzachristmas/subscribers'),stRef=db.ref('pizzachristmas/stats');
+const spinRef=db.ref('pizzachristmas/spins'),nlRef=db.ref('pizzachristmas/newsletter');
 let userData=JSON.parse(localStorage.getItem('pizzachristmas_user')||'null');
 
 stRef.on('value',s=>{const d=s.val()||{};document.getElementById('liveVisitors').textContent=(d.totalVisitors||0).toLocaleString();});
@@ -350,10 +410,120 @@ function checkExisting(){if(userData&&userData.id){showSuccess();}}
 
 function copyCode(btn){const code=btn.parentElement.querySelector('span').textContent;navigator.clipboard.writeText(code);btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',2000);trackEvent('copy_code',{code});}
 function toggleFaq(b){const a=b.nextElementSibling,o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('active'));if(!o){a.classList.add('open');b.classList.add('active');trackEvent('faq_open');}}
-function openTip(){document.getElementById('tipOverlay').classList.add('active');}
+function openTip(){document.getElementById('tipOverlay').classList.add('active');trackEvent('tip_click');}
 function closeTip(){document.getElementById('tipOverlay').classList.remove('active');}
 document.getElementById('tipOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTip();});
 function copyAddr(el){navigator.clipboard.writeText(el.textContent);const o=el.textContent;el.textContent='Copied!';setTimeout(()=>el.textContent=o,1500);}
+
+/* ===== DAILY DEALS WHEEL ===== */
+const segments=[
+  {label:'Free Delivery Code',color:'#dc2626'},
+  {label:'10% Off',color:'#16a34a'},
+  {label:'Buy 1 Get 1',color:'#b91c1c'},
+  {label:'Free Garlic Bread',color:'#15803d'},
+  {label:'Mystery Coupon',color:'#ef4444'},
+  {label:'Double Points',color:'#22c55e'},
+  {label:'Free Dessert',color:'#991b1b'},
+  {label:'Spin Again Tomorrow',color:'#166534'}
+];
+const segDesc={
+  'Free Delivery Code':'Use code XMASDELIVER at checkout for free delivery!',
+  '10% Off':'Save 10% on your next pizza order. Code: XMAS10',
+  'Buy 1 Get 1':'Buy any pizza, get a second one free! Code: XMASBOGO',
+  'Free Garlic Bread':'Free garlic bread with any large pizza. Code: XMASBREAD',
+  'Mystery Coupon':'A mystery deal has been unlocked! Check your email for details.',
+  'Double Points':'Earn double loyalty points on your next order today!',
+  'Free Dessert':'Free dessert with any order over $15. Code: XMASSWEET',
+  'Spin Again Tomorrow':'No deal this time — come back in 24 hours for another spin!'
+};
+let currentAngle=0,spinning=false,lastPrize='';
+const canvas=document.getElementById('wheelCanvas'),ctx=canvas.getContext('2d');
+
+function drawWheel(){
+  const cx=320,cy=320,r=310,n=segments.length,arc=2*Math.PI/n;
+  ctx.clearRect(0,0,640,640);
+  for(let i=0;i<n;i++){
+    const a=i*arc-Math.PI/2;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,a,a+arc);ctx.closePath();
+    ctx.fillStyle=segments[i].color;ctx.fill();
+    ctx.strokeStyle='rgba(0,0,0,.3)';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(a+arc/2);
+    ctx.fillStyle='#fff';ctx.font='bold 15px -apple-system,sans-serif';ctx.textAlign='center';
+    const words=segments[i].label.split(' ');
+    words.forEach((w,j)=>ctx.fillText(w,r*.62,j*18-((words.length-1)*9)));
+    ctx.restore();
+  }
+  ctx.beginPath();ctx.arc(cx,cy,4,0,2*Math.PI);ctx.fillStyle='#000';ctx.fill();
+}
+drawWheel();
+
+function getSpinCooldown(){
+  const last=localStorage.getItem('pizzachristmas_spin');
+  if(!last) return 0;
+  const diff=Date.now()-parseInt(last);
+  return diff>=86400000?0:86400000-diff;
+}
+
+function updateCooldownUI(){
+  const cd=getSpinCooldown();
+  const btn=document.getElementById('spinBtn');
+  const cdEl=document.getElementById('spinCooldown');
+  if(cd>0){
+    btn.disabled=true;btn.textContent='Already Spun Today';
+    const h=Math.floor(cd/3600000),m=Math.floor((cd%3600000)/60000);
+    cdEl.textContent='Next spin in '+h+'h '+m+'m';
+  } else {
+    btn.disabled=false;btn.textContent='Spin for a Deal!';cdEl.textContent='';
+  }
+}
+updateCooldownUI();setInterval(updateCooldownUI,60000);
+
+function spinWheel(){
+  if(spinning||getSpinCooldown()>0) return;
+  spinning=true;
+  document.getElementById('spinBtn').disabled=true;
+  document.getElementById('spinResult').style.display='none';
+  trackEvent('spin_wheel');
+  const idx=Math.floor(Math.random()*segments.length);
+  const arc=360/segments.length;
+  const extra=360*5+arc*idx+arc/2+Math.random()*arc*0.6-arc*0.3;
+  currentAngle+=extra;
+  canvas.style.transform='rotate('+currentAngle+'deg)';
+  lastPrize=segments[segments.length-1-idx].label;
+  setTimeout(()=>{
+    spinning=false;
+    localStorage.setItem('pizzachristmas_spin',Date.now().toString());
+    spinRef.push({prize:lastPrize,timestamp:Date.now()});
+    document.getElementById('spinPrize').textContent=lastPrize;
+    document.getElementById('spinDesc').textContent=segDesc[lastPrize];
+    document.getElementById('spinResult').style.display='block';
+    updateCooldownUI();
+  },4200);
+}
+
+function shareOnX(){
+  const text='I just spun the Pizza Christmas Daily Deals Wheel and got: '+lastPrize+'! Try your luck @SpunkArt13 https://pizza.christmas';
+  window.open('https://x.com/intent/tweet?text='+encodeURIComponent(text),'_blank');
+  trackEvent('share_deal',{platform:'x',prize:lastPrize});
+}
+function copyShareLink(){
+  navigator.clipboard.writeText('https://pizza.christmas');
+  const btn=event.target;btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy Link',2000);
+  trackEvent('share_deal',{platform:'copy',prize:lastPrize});
+}
+
+/* ===== NEWSLETTER FIREBASE ===== */
+async function submitNewsletter(){
+  const email=document.getElementById('nlEmail').value.trim().toLowerCase();
+  const msg=document.getElementById('nlMsg');
+  if(!email||!email.includes('@')){msg.textContent='Please enter a valid email.';msg.style.color='var(--primary)';return;}
+  const existing=await nlRef.orderByChild('email').equalTo(email).once('value');
+  if(existing.exists()){msg.textContent='You are already subscribed!';msg.style.color='var(--accent)';return;}
+  await nlRef.push({email,timestamp:Date.now()});
+  document.getElementById('nlForm').innerHTML='<p style="color:var(--accent);font-weight:700">Subscribed! You will get daily deals.</p>';
+  trackEvent('newsletter_signup');
+}
+
 stRef.child('totalVisitors').once('value',s=>stRef.update({totalVisitors:(s.val()||0)+1}));
 checkExisting();trackEvent('page_view');
 </script>
