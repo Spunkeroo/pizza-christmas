@@ -68,7 +68,7 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 .section-sub{text-align:center;color:var(--muted);max-width:550px;margin:0 auto 48px}
 /* Deals Grid */
 .deals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.deal-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s;position:relative;overflow:hidden}
+.deal-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
 .deal-card:hover{border-color:var(--primary);transform:translateY(-2px)}
 .deal-chain{font-size:1.2rem;font-weight:800;margin-bottom:4px}
 .deal-badge{display:inline-block;background:var(--primary);color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:99px;margin-bottom:12px;text-transform:uppercase}
@@ -88,7 +88,7 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 .deal-orig{text-decoration:line-through;color:var(--muted);font-size:.9rem;margin-left:8px;font-weight:400}
 /* Features */
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.feat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px;transition:all .3s;cursor:pointer}
 .feat:hover{border-color:var(--primary);transform:translateY(-2px)}
 .feat-icon{font-size:2rem;margin-bottom:16px}
 .feat h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
@@ -162,98 +162,98 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 <p class="section-sub">The hottest holiday pizza deals from every major chain, updated daily</p>
 <div class="deals-grid">
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Domino's</div>
     <span class="deal-badge">Holiday Special</span>
     <div class="deal-title">50% Off All Menu-Price Pizzas</div>
     <div class="deal-desc">Order any menu-price pizza online and get 50% off. All sizes, all toppings. Limited time holiday offer.</div>
     <div class="deal-code"><span>HOLIDAY50</span><button onclick="copyCode(this)">Copy</button></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Pizza Hut</div>
     <span class="deal-badge green">Best Value</span>
     <div class="deal-title">Large 3-Topping Pizza $9.99</div>
     <div class="deal-desc">Get a large 3-topping pizza for just $9.99 when you order online. Carryout or delivery.</div>
     <div class="deal-price">$9.99 <span class="deal-orig">$17.99</span></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Papa Johns</div>
     <span class="deal-badge gold">Promo Code</span>
     <div class="deal-title">Buy 1 Get 1 Free</div>
     <div class="deal-desc">Buy any large or XL pizza at regular menu price, get a second one free. Online only.</div>
     <div class="deal-code"><span>BOGO2025</span><button onclick="copyCode(this)">Copy</button></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Little Caesars</div>
     <span class="deal-badge green">Everyday Deal</span>
     <div class="deal-title">Hot-N-Ready Large Pepperoni $6.99</div>
     <div class="deal-desc">Classic pepperoni pizza, always hot and always ready. No coupon needed. Walk in and grab it.</div>
     <div class="deal-price">$6.99</div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Marco's Pizza</div>
     <span class="deal-badge">Holiday Special</span>
     <div class="deal-title">Large Specialty Pizza $11.99</div>
     <div class="deal-desc">Any large specialty pizza for $11.99. Choose from Deluxe Uno, Garden, Pepperoni Magnifico, and more.</div>
     <div class="deal-price">$11.99 <span class="deal-orig">$18.99</span></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Hungry Howie's</div>
     <span class="deal-badge gold">Promo Code</span>
     <div class="deal-title">2 Medium 1-Topping Pizzas $12.99</div>
     <div class="deal-desc">Get two medium 1-topping pizzas for just $12.99 with code. Flavored crust included free.</div>
     <div class="deal-code"><span>2FOR1299</span><button onclick="copyCode(this)">Copy</button></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Cicis Pizza</div>
     <span class="deal-badge green">Unlimited</span>
     <div class="deal-title">Unlimited Buffet $5.99/person</div>
     <div class="deal-desc">Unlimited pizza, pasta, salad, and dessert. Feed the whole family for less this holiday season.</div>
     <div class="deal-price">$5.99 <span class="deal-orig">$8.99</span></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Find Location</a>
+      <a href="#signup" class="deal-btn primary">Find Location</a>
     </div>
   </div>
 
-  <div class="deal-card">
+  <div class="deal-card" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
     <div class="deal-chain">Papa Murphy's</div>
     <span class="deal-badge">Holiday Special</span>
     <div class="deal-title">Large Take-N-Bake $10.99</div>
     <div class="deal-desc">Large stuffed pizza, take home and bake fresh. Perfect for holiday parties. Online order only.</div>
     <div class="deal-code"><span>FESTIVE10</span><button onclick="copyCode(this)">Copy</button></div>
     <div class="deal-btns">
-      <a href="#" class="deal-btn primary">Order on DoorDash</a>
-      <a href="#" class="deal-btn">Order on Uber Eats</a>
+      <a href="#signup" class="deal-btn primary">Order on DoorDash</a>
+      <a href="#signup" class="deal-btn">Order on Uber Eats</a>
     </div>
   </div>
 
@@ -264,10 +264,10 @@ a{color:var(--primary);text-decoration:none}a:hover{color:var(--gold)}
 <h2 class="section-title">Why Pizza Christmas?</h2>
 <p class="section-sub">Everything you need to find the best pizza deals this holiday season</p>
 <div class="features">
-  <div class="feat"><div class="feat-icon">&#127829;</div><h3>Daily Deal Updates</h3><p>We scour every major pizza chain daily and add new deals, promos, and limited-time offers as they drop.</p></div>
-  <div class="feat"><div class="feat-icon">&#127915;</div><h3>Coupon Codes</h3><p>Verified, working promo codes you can copy and paste. No expired codes, no fake discounts.</p></div>
-  <div class="feat"><div class="feat-icon">&#128176;</div><h3>Price Comparison</h3><p>See prices across chains side by side. Know exactly where to get the most pizza for your money.</p></div>
-  <div class="feat"><div class="feat-icon">&#128666;</div><h3>Delivery App Links</h3><p>Direct links to order on DoorDash, Uber Eats, or from the chain directly. One click to order.</p></div>
+  <div class="feat" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})"><div class="feat-icon">&#127829;</div><h3>Daily Deal Updates</h3><p>We scour every major pizza chain daily and add new deals, promos, and limited-time offers as they drop.</p></div>
+  <div class="feat" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})"><div class="feat-icon">&#127915;</div><h3>Coupon Codes</h3><p>Verified, working promo codes you can copy and paste. No expired codes, no fake discounts.</p></div>
+  <div class="feat" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})"><div class="feat-icon">&#128176;</div><h3>Price Comparison</h3><p>See prices across chains side by side. Know exactly where to get the most pizza for your money.</p></div>
+  <div class="feat" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})"><div class="feat-icon">&#128666;</div><h3>Delivery App Links</h3><p>Direct links to order on DoorDash, Uber Eats, or from the chain directly. One click to order.</p></div>
 </div>
 </div></section>
 
@@ -356,6 +356,10 @@ document.getElementById('tipOverlay').addEventListener('click',e=>{if(e.target==
 function copyAddr(el){navigator.clipboard.writeText(el.textContent);const o=el.textContent;el.textContent='Copied!';setTimeout(()=>el.textContent=o,1500);}
 stRef.child('totalVisitors').once('value',s=>stRef.update({totalVisitors:(s.val()||0)+1}));
 checkExisting();trackEvent('page_view');
+</script>
+<!-- Watermark Protection -->
+<script>
+(function(){var b='sell.party',t='Sell Party';function w(){var c=document.createElement('canvas');c.width=300;c.height=150;var x=c.getContext('2d');x.save();x.translate(150,75);x.rotate(-.44);x.font='600 18px Arial';x.fillStyle='rgba(255,255,255,0.04)';x.textAlign='center';x.fillText(t,0,-10);x.font='400 12px Arial';x.fillStyle='rgba(255,255,255,0.03)';x.fillText(b,0,10);x.restore();var d=document.createElement('div');d.id='_spw';d.setAttribute('data-sp','1');Object.assign(d.style,{position:'fixed',top:'0',left:'0',width:'100vw',height:'100vh',pointerEvents:'none',zIndex:'2147483647',backgroundImage:'url('+c.toDataURL()+')',backgroundRepeat:'repeat',opacity:'1',userSelect:'none'});document.body.appendChild(d);new MutationObserver(function(){if(!document.getElementById('_spw'))w()}).observe(document.body,{childList:true,subtree:true})}setInterval(function(){var e=document.getElementById('_spw');if(!e)w();else{e.style.display='';e.style.visibility='';e.style.opacity='1'}},2000);document.addEventListener('DOMContentLoaded',function(){w()})})();
 </script>
 </body>
 </html>
