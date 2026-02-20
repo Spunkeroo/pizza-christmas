@@ -1,0 +1,23 @@
+# Pizza Christmas
+
+## About
+Pizza Christmas is a free holiday pizza deals aggregator. It collects and displays the best pizza deals, coupon codes, and promotional offers from every major pizza chain during the holiday season.
+
+## What It Does
+- Aggregates pizza deals from Dominos, Pizza Hut, Papa Johns, Little Caesars, Marco's Pizza, Hungry Howie's, Cicis, Papa Murphy's, and more
+- Displays verified coupon codes that users can copy and use
+- Provides direct links to order through DoorDash, Uber Eats, or directly from chains
+- Compares prices across chains so users can find the best value
+- Updates daily with new holiday deals and limited-time offers
+
+## Features
+- Daily Deal Updates: New deals added as they go live
+- Coupon Codes: Verified, working promo codes
+- Price Comparison: Side-by-side pricing across chains
+- Delivery App Links: One-click ordering through delivery apps
+
+## URL
+https://pizza.christmas
+
+## Free
+Pizza Christmas is completely free to use. No signup required to browse deals. Optional email newsletter for daily deal alerts.
